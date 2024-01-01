@@ -3,15 +3,11 @@ import { FaReact,FaNodeJs  } from "react-icons/fa";
 import { SiTailwindcss, SiMongodb  } from "react-icons/si";
 import {
     Drawer,
-    DrawerClose,
     DrawerContent,
-    DrawerDescription,
-    DrawerFooter,
     DrawerHeader,
     DrawerTitle,
     DrawerTrigger,
   } from "@/components/ui/drawer"
-import { Button } from "@/components/ui/button";
 import { useState } from "react";
   
 const Projects = () => {
