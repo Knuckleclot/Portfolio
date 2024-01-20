@@ -4,12 +4,14 @@ import { SiTailwindcss, SiMongodb } from "react-icons/si";
 import {
   Drawer,
   DrawerContent,
+  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { useState } from "react";
 import { hakbusweb } from "@/assets";
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 
 const Projects = () => {
@@ -152,12 +154,14 @@ const Projects = () => {
                 <button
                   className="text-green-600 font-normal"
                   onClick={() => handleReadMoreClick(project)}
-                >
+                  >
                   Read more <ArrowRight className="text-green-600" />
                 </button>
               </DrawerTrigger>
 
-              <DrawerContent className="h-[90dvh] bg-[#222222] border-[#222222]">
+              <DrawerContent className="h-[90dvh] bg-[#222222] border-[#222222] overflow-y-auto">
+                  <ScrollArea className="overflow-auto p-4">
+
                 <div className="mx-auto w-full max-w-sm sm:max-w-[70rem] px-6">
                   <DrawerHeader>
                     <DrawerTitle className="text-xl text-white">
@@ -182,13 +186,16 @@ const Projects = () => {
                       src={selectedProject?.image}
                       alt="Project Image"
                       className="object-contain block rounded-lg"
-                    />
+                      />
                   </div>
                   <div className="py-4">
                         <p className="font-normal text-lg text-gray-400">{selectedProject?.description}</p>
                   </div>
                  </div>
-                  <div className="flex flex-col gap-4 absolute bottom-0 left-1/2 -translate-x-1/2 w-full sm:max-w-[70rem] max-w-sm sm:left-1/2 sm:-translate-x-1/2 p-8 ">
+               
+                </div>
+                </ScrollArea>
+                <DrawerFooter className="flex flex-col gap-4 absolute bg-[#222222] bottom-0 left-1/2 -translate-x-1/2 w-full sm:max-w-[70rem] max-w-sm sm:left-1/2 sm:-translate-x-1/2 p-8 ">
                     <div className="w-full bg-gray-500 h-[0.3px] mb-4" />
                     <div className="flex items-center gap-4 justify-between">
                       <p className="text-white text-lg">Check out website</p>
@@ -197,8 +204,7 @@ const Projects = () => {
                         <ArrowUpRight color="white" size={20} />
                       </div>
                     </div>
-                  </div>
-                </div>
+                  </DrawerFooter>
               </DrawerContent>
             </Drawer>
             <div className="flex gap-2 items-center pt-2">

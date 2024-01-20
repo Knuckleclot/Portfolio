@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaTwitter, FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <div className="flex items-center justify-between flex-col gap-8 sm:flex-row px-6 py-8 pb-12">
+    <div className="flex items-center justify-between flex-col gap-8 sm:flex-row px-6 sm:px-0 py-8 pb-12">
         <Link to={'/'}><h1 className="font-bold text-3xl text-white">MR</h1></Link>
         <div className="flex items-center gap-4">
         <p className="text-gray-400 text-sm font-medium">

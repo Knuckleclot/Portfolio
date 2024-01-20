@@ -1,7 +1,34 @@
+import {motion} from 'framer-motion'
+
+const fadeInAnimationVariants = {
+  initial: {
+    opacity:0,
+    y:100,
+  },
+  animate: (index:number)=>( {
+    opacity:1,
+    y:0,
+    transition:{
+      delay:0.45*index,
+      duration:0.5,
+      ease:'easeIn',
+    }
+  }),
+}
+
+
 const Timeline = () => {
   return (
     <>
-      <p className="text-white text-xl font-medium">My timeline</p>
+      <motion.p className="text-white text-xl font-medium"
+      variants={fadeInAnimationVariants}
+      initial="initial"
+      whileInView="animate"
+      viewport={{
+        once:true,
+      }}
+      custom={0}
+      >My timeline</motion.p>
       <ol className="relative border-s border-gray-200 dark:border-gray-700">
         <li className="mb-10 ms-4">
           <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
