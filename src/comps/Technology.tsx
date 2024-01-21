@@ -1,5 +1,5 @@
-import { FaReact, FaNodeJs, FaPython } from "react-icons/fa";
-import { SiTailwindcss, SiMongodb } from "react-icons/si";
+import { FaReact, FaPython } from "react-icons/fa";
+import { SiTailwindcss } from "react-icons/si";
 import { AiOutlineAntDesign } from "react-icons/ai"; 
 import { RiZhihuFill } from "react-icons/ri"; 
 import { BsLightningFill } from "react-icons/bs"; 
