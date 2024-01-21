@@ -10,6 +10,7 @@ import Projects from "./Projects";
 import Technology from "./Technology";
 import { motion } from 'framer-motion'
 import { ReactElement } from "react";
+import Contact from "./Contact";
 
 type contactType = {
   name:string,
@@ -148,6 +149,8 @@ const Hero = () => {
       <Projects />
       <div className="w-full bg-gray-500 h-[0.3px] my-4"/>
       <Technology />
+      <div className="w-full bg-gray-500 h-[0.3px] my-4"/>
+      <Contact />
     </div>
   );
 };

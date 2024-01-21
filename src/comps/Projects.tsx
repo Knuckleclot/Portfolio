@@ -12,6 +12,23 @@ import {
 import { useState } from "react";
 import { hakbusweb } from "@/assets";
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { motion } from 'framer-motion'
+
+const fadeInAnimationVariants = {
+  initial: {
+    opacity:0,
+    y:100,
+  },
+  animate: (index:number)=>( {
+    opacity:1,
+    y:0,
+    transition:{
+      delay:0.20*index,
+      duration:0.5,
+      ease:'easeIn',
+    }
+  }),
+}
 
 
 const Projects = () => {
@@ -143,10 +160,25 @@ const Projects = () => {
 
   return (
     <>
-      <p className="text-white text-xl font-medium">Projects</p>
+      <motion.p className="text-white text-xl font-medium"
+       variants={fadeInAnimationVariants}
+       initial="initial"
+       whileInView={'animate'}
+       viewport={{
+         once:true,
+       }}
+       >Projects</motion.p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {myProjects?.map((project: Project) => (
-          <div className="p-4 flex flex-col gap-2 items-start justify-between bg-[#222222] rounded-lg">
+        {myProjects?.map((project: Project,index) => (
+          <motion.div key={index} className="p-4 flex flex-col gap-2 items-start justify-between bg-[#222222] rounded-lg"
+          variants={fadeInAnimationVariants}
+          initial="initial"
+          whileInView={'animate'}
+          viewport={{
+            once:true,
+          }}
+          custom={index}
+          >
             <p className="font-pnormal text-white">{project?.name}</p>
             <p className="font-pnormal text-gray-400">{project?.description}</p>
             <Drawer>
@@ -212,7 +244,7 @@ const Projects = () => {
                 <div key={index}>{tech?.icon}</div>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </>

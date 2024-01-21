@@ -29,7 +29,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="w-full justify-between flex items-center py-6 px-6 lg:px-0">
+    <div id="navbar" className="w-full justify-between flex items-center py-6 px-6 lg:px-0">
         <Link to={'/'}><h1 className="font-bold text-3xl text-white">MR</h1></Link>
         <ul className="md:flex items-center gap-6 hidden">
           {links?.map((link)=>(

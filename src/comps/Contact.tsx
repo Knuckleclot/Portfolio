@@ -1,13 +1,53 @@
-import Navbar from './Navbar'
+import { motion } from 'framer-motion'
+
+const fadeInAnimationVariants = {
+  initial: {
+    opacity:0,
+    y:100,
+  },
+  animate: (index:number)=>( {
+    opacity:1,
+    y:0,
+    transition:{
+      delay:0.15*index,
+      duration:0.5,
+      ease:'easeIn',
+    }
+  }),
+}
 
 const Contact = () => {
   return (
-    <div className="flex justify-center w-full mx-auto relative min-h-screen">
-    <div className="absolute inset-0 z-[0] h-full w-full bg-[linear-gradient(to_right,#80808015_2px,transparent_1px)] bg-[size:130px_130px] sm:bg-[size:20vw] [mask-image:radial-gradient(ellipse_65%_65%_at_50%_50%,#000_60%,transparent_100%)]"></div>
-    <div className="lg:max-w-[80%] xxl:max-w-[60%] z-[5] w-full">
-      <Navbar />
+    <div className="w-full flex flex-col items-center gap-8">
+      <motion.p className="text-white text-2xl md:text-3xl text-center font-medium"
+        variants={fadeInAnimationVariants}
+        initial="initial"
+        whileInView={'animate'}
+        viewport={{
+          once:true,
+        }}
+      >Get started with a consultation today.</motion.p>
+      <motion.p className="text-gray-500 text-lg md:text-xl text-center font-normal"
+       variants={fadeInAnimationVariants}
+       initial="initial"
+       whileInView={'animate'}
+       viewport={{
+         once:true,
+       }}
+       custom={1}>
+        Whether you have questions, ideas, or projects in mind, our team is ready to assist you every step of the way. Schedule a consultation today to explore how we can turn your vision into reality and achieve success together.
+      </motion.p>
+      <motion.button className="px-6 sm:px-12 py-3 bg-green-600 rounded-lg w-max"
+      variants={fadeInAnimationVariants}
+      initial="initial"
+      whileInView={'animate'}
+      viewport={{
+        once:true,
+      }}
+      custom={2}>
+        <a href="mailto:007lazi@gmail.com" className="text-white font-normal">Let's work together</a>
+      </motion.button>
     </div>
-  </div>
   )
 }
 
